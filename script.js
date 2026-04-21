@@ -3,11 +3,11 @@ const mobileMenu = document.querySelector(".mobile-nav");
 const copyButtons = document.querySelectorAll("[data-copy]");
 const heroVisual = document.querySelector(".hero-visual");
 const tiltTargets = document.querySelectorAll(
-  ".button, .store-link, .step-card, .stat-link, .benefit-panel, .wellness-card, .token-card, .community-card, .resource-card, .support-panel, .insight-panel"
+  ".button, .store-link, .step-card, .stat-link, .benefit-panel, .wellness-card, .token-card, .community-card, .resource-card, .support-panel, .insight-panel, .person-card"
 );
 const stackSections = document.querySelectorAll("main > .section:not(.hero)");
 const revealTargets = document.querySelectorAll(
-  ".section-heading, .how-it-works-media, .steps-grid, .stat-links-band, .split-copy, .wellness-stack, .insight-panel, .tokenomics-grid, .tokenomics-note, .referral-story, .community-support, .resources-grid, .download-copy, .store-links, .support-panel, .footer-grid"
+  ".section-heading, .how-it-works-media, .steps-grid, .stat-links-band, .team-grid, .partner-grid, .split-copy, .wellness-stack, .insight-panel, .tokenomics-grid, .tokenomics-note, .referral-story, .community-support, .resources-grid, .download-copy, .store-links, .support-panel, .footer-grid"
 );
 const referralStory = document.querySelector(".referral-story");
 const referralSteps = document.querySelectorAll(".referral-step");
