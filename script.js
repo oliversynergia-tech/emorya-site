@@ -1,3 +1,38 @@
+const flattenDesignTokens = (tokens, path = []) =>
+  Object.entries(tokens).reduce((accumulator, [key, value]) => {
+    const nextPath = [...path, key];
+
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      return { ...accumulator, ...flattenDesignTokens(value, nextPath) };
+    }
+
+    accumulator[`--${nextPath.join("-")}`] = String(value);
+    return accumulator;
+  }, {});
+
+const applyDesignTokens = async () => {
+  try {
+    const response = await fetch("./tokens.json", { cache: "no-cache" });
+    if (!response.ok) return;
+
+    const tokens = await response.json();
+    const properties = flattenDesignTokens(tokens);
+    const root = document.documentElement;
+
+    Object.entries(properties).forEach(([property, value]) => {
+      root.style.setProperty(property, value);
+    });
+  } catch {
+    // CSS fallbacks in :root keep the site styled if tokens fail to load.
+  }
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", applyDesignTokens, { once: true });
+} else {
+  applyDesignTokens();
+}
+
 const toggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-nav");
 const copyButtons = document.querySelectorAll("[data-copy]");
