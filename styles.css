@@ -68,6 +68,7 @@
   --color-accent-pinkSoft: rgba(247, 222, 255, 0.72);
   --color-accent-blueSoft: #dff4ff;
   --color-accent-roseSoft: #ffe3f2;
+  --color-effect-silk: #2A1748;
   --color-shadow-ink: rgba(3, 1, 10, 0.38);
   --color-shadow-inkSoft: rgba(3, 1, 10, 0.22);
   --color-shadow-panel: rgba(4, 1, 12, 0.18);
@@ -148,7 +149,9 @@
   --transition-easing-ambient: ease-in-out;
   --zIndex-background: -1;
   --zIndex-base: 0;
+  --zIndex-silkCanvas: 0;
   --zIndex-raised: 1;
+  --zIndex-heroContent: 1;
   --zIndex-overlay: 4;
   --zIndex-popover: 6;
   --zIndex-header: 50;
@@ -383,6 +386,17 @@ a {
 .hero {
   padding: 5.4rem 0 3.4rem;
   position: relative;
+  overflow: hidden;
+}
+
+#silk-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--zIndex-silkCanvas);
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  pointer-events: none;
 }
 
 .hero::before {
@@ -403,6 +417,8 @@ a {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+  z-index: var(--zIndex-heroContent);
 }
 
 .kicker {
@@ -831,6 +847,7 @@ a {
 
 .section {
   position: relative;
+  z-index: var(--zIndex-heroContent);
   padding: 7.1rem 0;
 }
 
