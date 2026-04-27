@@ -2162,6 +2162,8 @@ a {
 
 .token-card {
   min-height: 13.8rem;
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 .tokenomics-note {
@@ -2939,7 +2941,6 @@ a {
 .steps-grid.is-visible .step-card,
 .feature-grid.is-visible .feature-card,
 .wellness-stack.is-visible .wellness-card,
-.tokenomics-grid.is-visible .token-card,
 .community-support.is-visible .community-card,
 .resources-grid.is-visible .resource-card,
 .store-links.is-visible .store-link {
@@ -2959,9 +2960,20 @@ a {
 .steps-grid.is-visible .step-card:nth-child(3),
 .feature-grid.is-visible .feature-card:nth-child(3),
 .wellness-stack.is-visible .wellness-card:nth-child(3),
-.tokenomics-grid.is-visible .token-card:nth-child(3),
 .resources-grid.is-visible .resource-card:nth-child(3) {
   animation-delay: var(--transition-duration-fast);
+}
+
+.tokenomics-grid.is-visible .token-card {
+  animation: tokenCardStaggerIn 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.tokenomics-grid.is-visible .token-card:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.tokenomics-grid.is-visible .token-card:nth-child(3) {
+  animation-delay: 360ms;
 }
 
 .feature-grid.is-visible .feature-card:nth-child(4) {
@@ -3040,6 +3052,17 @@ a {
   }
 }
 
+@keyframes tokenCardStaggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -3055,6 +3078,7 @@ a {
   .split-copy,
   .insight-panel,
   .tokenomics-grid,
+  .token-card,
   .tokenomics-note,
   .referral-story,
   .community-support,
