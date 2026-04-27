@@ -209,13 +209,115 @@ const initSilkBackground = () => {
   requestAnimationFrame(render);
 };
 
+const initWellnessStackReveal = () => {
+  const wellnessTitle = document.getElementById("wellness-title");
+  const wellnessSection = wellnessTitle ? wellnessTitle.closest(".section-split") : null;
+  const wellnessStack = wellnessSection ? wellnessSection.querySelector(".wellness-stack") : null;
+  const wellnessCards = wellnessStack ? Array.from(wellnessStack.querySelectorAll(".wellness-card")) : [];
+
+  if (!wellnessSection || !wellnessStack || wellnessCards.length < 3) return;
+
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const desktopQuery = window.matchMedia("(min-width: 1081px)");
+  let metrics = null;
+  let ticking = false;
+
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+  const lerp = (start, end, progress) => start + (end - start) * progress;
+
+  const resetCards = () => {
+    wellnessStack.classList.remove("is-scroll-stacked");
+    wellnessCards.forEach((card) => {
+      card.style.setProperty("--wellness-reveal-y", "0px");
+    });
+  };
+
+  const measure = () => {
+    const stackStyles = window.getComputedStyle(wellnessStack);
+    const gap = parseFloat(stackStyles.rowGap || stackStyles.gap || "0") || 0;
+    const firstHeight = wellnessCards[0].getBoundingClientRect().height;
+    const secondHeight = wellnessCards[1].getBoundingClientRect().height;
+
+    metrics = {
+      secondStart: -(firstHeight + gap),
+      thirdStart: -(firstHeight + gap + secondHeight + gap),
+      thirdMid: -(secondHeight + gap),
+    };
+  };
+
+  const update = () => {
+    ticking = false;
+
+    if (reducedMotionQuery.matches || !desktopQuery.matches) {
+      resetCards();
+      return;
+    }
+
+    wellnessStack.classList.add("is-scroll-stacked");
+
+    if (!metrics) measure();
+
+    const rect = wellnessSection.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const start = viewportHeight * 0.72;
+    const end = viewportHeight * 0.18;
+    const travel = Math.max(rect.height + start - end, 1);
+    const progress = clamp((start - rect.top) / travel, 0, 1);
+    const firstPhase = clamp(progress / 0.45, 0, 1);
+    const secondPhase = clamp((progress - 0.45) / 0.55, 0, 1);
+    const secondOffset = lerp(metrics.secondStart, 0, firstPhase);
+    const thirdOffset = progress < 0.45
+      ? lerp(metrics.thirdStart, metrics.thirdMid, firstPhase)
+      : lerp(metrics.thirdMid, 0, secondPhase);
+
+    wellnessCards[0].style.setProperty("--wellness-reveal-y", "0px");
+    wellnessCards[1].style.setProperty("--wellness-reveal-y", `${secondOffset}px`);
+    wellnessCards[2].style.setProperty("--wellness-reveal-y", `${thirdOffset}px`);
+  };
+
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+
+  const remeasureAndUpdate = () => {
+    metrics = null;
+    requestUpdate();
+  };
+
+  const bindMediaListener = (query, listener) => {
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", listener);
+      return;
+    }
+
+    if (typeof query.addListener === "function") {
+      query.addListener(listener);
+    }
+  };
+
+  bindMediaListener(reducedMotionQuery, remeasureAndUpdate);
+  bindMediaListener(desktopQuery, remeasureAndUpdate);
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", remeasureAndUpdate);
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(remeasureAndUpdate);
+    resizeObserver.observe(wellnessStack);
+  }
+
+  update();
+};
+
 const initializeSiteInteractions = () => {
   const toggle = document.querySelector(".menu-toggle");
   const mobileMenu = document.querySelector(".mobile-nav");
   const copyButtons = document.querySelectorAll("[data-copy]");
   const heroVisual = document.querySelector(".hero-visual");
   const tiltTargets = document.querySelectorAll(
-    ".button, .store-link, .step-card, .stat-link, .benefit-panel, .wellness-card, .token-card, .community-card, .resource-card, .support-panel, .insight-panel, .person-card"
+    ".button, .store-link, .step-card, .stat-link, .benefit-panel, .token-card, .community-card, .resource-card, .support-panel, .insight-panel, .person-card"
   );
   const stackSections = document.querySelectorAll("main > .section:not(.hero)");
   const revealTargets = document.querySelectorAll(
@@ -351,6 +453,7 @@ const initializeSiteInteractions = () => {
 const initializeApp = async () => {
   await applyDesignTokens();
   initSilkBackground();
+  initWellnessStackReveal();
   initializeSiteInteractions();
 };
 
