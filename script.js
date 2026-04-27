@@ -223,11 +223,6 @@ const initWellnessStackReveal = () => {
   let ticking = false;
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-  const lerp = (start, end, progress) => start + (end - start) * progress;
-  const mapProgress = (value, inputStart, inputEnd) => {
-    if (inputEnd <= inputStart) return value >= inputEnd ? 1 : 0;
-    return clamp((value - inputStart) / (inputEnd - inputStart), 0, 1);
-  };
 
   const resetCards = () => {
     wellnessStack.classList.remove("is-scroll-stacked");
@@ -245,7 +240,6 @@ const initWellnessStackReveal = () => {
     metrics = {
       secondStart: -(firstHeight + gap),
       thirdStart: -(firstHeight + gap + secondHeight + gap),
-      thirdMid: -(secondHeight + gap),
     };
   };
 
@@ -261,19 +255,12 @@ const initWellnessStackReveal = () => {
 
     if (!metrics) measure();
 
-    const rect = wellnessSection.getBoundingClientRect();
+    const rect = wellnessStack.getBoundingClientRect();
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const start = viewportHeight * 0.78;
-    const end = viewportHeight * 0.24;
-    const travel = Math.max(rect.height + start - end, 1);
-    const progress = clamp((start - rect.top) / travel, 0, 1);
-    const secondPhase = mapProgress(progress, 0.04, 0.28);
-    const thirdPhase = mapProgress(progress, 0.24, 0.55);
-    const thirdBridge = mapProgress(progress, 0.04, 0.28);
-    const secondOffset = lerp(metrics.secondStart, 0, secondPhase);
-    const thirdOffset = thirdPhase > 0
-      ? lerp(metrics.thirdMid, 0, thirdPhase)
-      : lerp(metrics.thirdStart, metrics.thirdMid, thirdBridge);
+    const start = viewportHeight * 0.8;
+    const scrollDelta = Math.max(start - rect.top, 0);
+    const secondOffset = clamp(metrics.secondStart + scrollDelta, metrics.secondStart, 0);
+    const thirdOffset = clamp(metrics.thirdStart + scrollDelta, metrics.thirdStart, 0);
 
     wellnessCards[0].style.setProperty("--wellness-reveal-y", "0px");
     wellnessCards[1].style.setProperty("--wellness-reveal-y", `${secondOffset}px`);
