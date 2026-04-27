@@ -224,6 +224,10 @@ const initWellnessStackReveal = () => {
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
   const lerp = (start, end, progress) => start + (end - start) * progress;
+  const mapProgress = (value, inputStart, inputEnd) => {
+    if (inputEnd <= inputStart) return value >= inputEnd ? 1 : 0;
+    return clamp((value - inputStart) / (inputEnd - inputStart), 0, 1);
+  };
 
   const resetCards = () => {
     wellnessStack.classList.remove("is-scroll-stacked");
@@ -259,16 +263,17 @@ const initWellnessStackReveal = () => {
 
     const rect = wellnessSection.getBoundingClientRect();
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const start = viewportHeight * 0.72;
-    const end = viewportHeight * 0.18;
+    const start = viewportHeight * 0.78;
+    const end = viewportHeight * 0.24;
     const travel = Math.max(rect.height + start - end, 1);
     const progress = clamp((start - rect.top) / travel, 0, 1);
-    const firstPhase = clamp(progress / 0.45, 0, 1);
-    const secondPhase = clamp((progress - 0.45) / 0.55, 0, 1);
-    const secondOffset = lerp(metrics.secondStart, 0, firstPhase);
-    const thirdOffset = progress < 0.45
-      ? lerp(metrics.thirdStart, metrics.thirdMid, firstPhase)
-      : lerp(metrics.thirdMid, 0, secondPhase);
+    const secondPhase = mapProgress(progress, 0.04, 0.28);
+    const thirdPhase = mapProgress(progress, 0.24, 0.55);
+    const thirdBridge = mapProgress(progress, 0.04, 0.28);
+    const secondOffset = lerp(metrics.secondStart, 0, secondPhase);
+    const thirdOffset = thirdPhase > 0
+      ? lerp(metrics.thirdMid, 0, thirdPhase)
+      : lerp(metrics.thirdStart, metrics.thirdMid, thirdBridge);
 
     wellnessCards[0].style.setProperty("--wellness-reveal-y", "0px");
     wellnessCards[1].style.setProperty("--wellness-reveal-y", `${secondOffset}px`);
