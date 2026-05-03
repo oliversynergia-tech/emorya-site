@@ -68,7 +68,7 @@
   --color-accent-pinkSoft: rgba(247, 222, 255, 0.72);
   --color-accent-blueSoft: #dff4ff;
   --color-accent-roseSoft: #ffe3f2;
-  --color-effect-silk: #2A1748;
+  --color-effect-silk: #17092D;
   --color-shadow-ink: rgba(3, 1, 10, 0.38);
   --color-shadow-inkSoft: rgba(3, 1, 10, 0.22);
   --color-shadow-panel: rgba(4, 1, 12, 0.18);
@@ -396,6 +396,7 @@ a {
   width: 100%;
   height: 100vh;
   height: 100dvh;
+  opacity: 0.8;
   pointer-events: none;
 }
 

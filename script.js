@@ -27,7 +27,7 @@ const applyDesignTokens = async () => {
   }
 };
 
-const parseHexColor = (value, fallback = "#2A1748") => {
+const parseHexColor = (value, fallback = "#17092D") => {
   const color = value.trim() || fallback;
   const normalized = color.startsWith("#") ? color.slice(1) : color;
   const hex = normalized.length === 3
@@ -35,7 +35,7 @@ const parseHexColor = (value, fallback = "#2A1748") => {
     : normalized;
 
   if (!/^[0-9a-fA-F]{6}$/.test(hex)) {
-    return parseHexColor(fallback, "#2A1748");
+    return parseHexColor(fallback, "#17092D");
   }
 
   return [
@@ -97,8 +97,8 @@ const initSilkBackground = () => {
 
       tex.y += 0.03 * sin(8.0 * tex.x - tOffset);
 
-      float pattern = 0.6 +
-                      0.4 * sin(5.0 * (tex.x + tex.y +
+      float pattern = 0.5 +
+                      0.3 * sin(5.0 * (tex.x + tex.y +
                                        cos(3.0 * tex.x + 5.0 * tex.y) +
                                        0.02 * tOffset) +
                                sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
@@ -173,7 +173,7 @@ const initSilkBackground = () => {
   const [red, green, blue] = parseHexColor(silkColor);
 
   gl.uniform3f(uniforms.color, red, green, blue);
-  gl.uniform1f(uniforms.speed, 5);
+  gl.uniform1f(uniforms.speed, 2.5);
   gl.uniform1f(uniforms.scale, 1);
   gl.uniform1f(uniforms.rotation, 0);
   gl.uniform1f(uniforms.noiseIntensity, 1.5);
