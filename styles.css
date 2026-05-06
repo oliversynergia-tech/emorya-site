@@ -2456,24 +2456,49 @@ a {
   font-size: 0.92rem;
 }
 
-.community-support {
+.community-social-band,
+.community-faq-section {
   display: grid;
-  grid-template-columns: 1.35fr 0.9fr;
   gap: 1.35rem;
-  align-items: stretch;
+  margin-top: 1.45rem;
 }
 
-.community-support > .community-card {
-  min-width: 0;
+.community-social-band {
+  padding: 1.95rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--borderRadius-lg);
+  background:
+    linear-gradient(180deg, var(--color-overlay-white03), var(--color-overlay-white012)),
+    var(--color-background-surface);
+  box-shadow: var(--shadow-soft);
 }
 
-.community-support .community-social-card {
-  grid-area: auto;
-}
-
-.community-faq-card {
+.community-band-heading {
   display: grid;
-  gap: 1.2rem;
+  gap: 0.75rem;
+}
+
+.community-band-heading-centered {
+  justify-items: center;
+  text-align: center;
+}
+
+.community-band-heading h3 {
+  margin: 0;
+  font-family: var(--typography-fontFamily-display);
+  font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.community-band-heading p {
+  margin: 0;
+  max-width: 42rem;
+}
+
+.faq-shell {
+  width: min(100%, 50rem);
+  margin: 0 auto;
 }
 
 .faq-accordion {
@@ -2701,9 +2726,8 @@ a {
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
-  margin-top: 1.35rem;
 }
 
 .social-link {
@@ -2843,6 +2867,11 @@ a {
   margin-top: 0.45rem;
 }
 
+.resource-popout a {
+  color: var(--color-text-primary);
+  font-weight: var(--typography-fontWeight-semibold);
+}
+
 .download-section {
   padding-bottom: 5.5rem;
 }
@@ -2975,7 +3004,8 @@ a {
 .tokenomics-grid,
 .tokenomics-note,
 .referral-story,
-.community-support,
+.community-social-band,
+.community-faq-section,
 .resources-grid,
 .download-copy,
 .store-links,
@@ -2995,7 +3025,7 @@ a {
 
 .steps-grid.is-visible .step-card,
 .feature-grid.is-visible .feature-card,
-.community-support.is-visible .community-card,
+.social-grid.is-visible .social-link,
 .resources-grid.is-visible .resource-card,
 .store-links.is-visible .store-link {
   animation: cardCascadeIn 500ms var(--transition-easing-reveal) both;
@@ -3004,7 +3034,7 @@ a {
 .steps-grid.is-visible .step-card:nth-child(2),
 .feature-grid.is-visible .feature-card:nth-child(2),
 .tokenomics-grid.is-visible .token-card:nth-child(2),
-.community-support.is-visible .community-card:nth-child(2),
+.social-grid.is-visible .social-link:nth-child(2),
 .resources-grid.is-visible .resource-card:nth-child(2),
 .store-links.is-visible .store-link:nth-child(2) {
   animation-delay: 90ms;
@@ -3012,8 +3042,21 @@ a {
 
 .steps-grid.is-visible .step-card:nth-child(3),
 .feature-grid.is-visible .feature-card:nth-child(3),
+.social-grid.is-visible .social-link:nth-child(3),
 .resources-grid.is-visible .resource-card:nth-child(3) {
   animation-delay: var(--transition-duration-fast);
+}
+
+.social-grid.is-visible .social-link:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+.social-grid.is-visible .social-link:nth-child(5) {
+  animation-delay: 360ms;
+}
+
+.social-grid.is-visible .social-link:nth-child(6) {
+  animation-delay: 450ms;
 }
 
 .tokenomics-grid.is-visible .token-card {
@@ -3200,16 +3243,18 @@ a {
   .footer-grid,
   .tokenomics-grid,
   .referral-story,
-  .community-support,
   .resources-grid {
     grid-template-columns: 1fr;
   }
 
   .steps-grid,
   .feature-grid,
-  .store-links,
-  .social-grid {
+  .store-links {
     grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .wellness-stack.is-scroll-stacked .wellness-card {
@@ -3274,6 +3319,10 @@ a {
 
   .referral-step {
     min-height: auto;
+  }
+
+  .community-social-band {
+    padding: 1.6rem;
   }
 
   .scene-phone-front {
@@ -3458,6 +3507,14 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .community-social-band {
+    padding: 1.35rem;
+  }
+
   .person-card img {
     aspect-ratio: 1 / 0.86;
   }
@@ -3626,7 +3683,4 @@ a {
     font-size: 0.68rem;
   }
 
-  .community-support {
-    gap: 1rem;
-  }
 }
