@@ -303,6 +303,70 @@ const initWellnessStackReveal = () => {
   update();
 };
 
+const initFaqAccordion = () => {
+  const accordion = document.querySelector(".faq-accordion");
+  if (!accordion) return;
+
+  const items = Array.from(accordion.querySelectorAll(".faq-item"));
+  if (!items.length) return;
+
+  accordion.classList.add("is-enhanced");
+
+  const animateItem = (item, expand) => {
+    const answer = item.querySelector(".faq-answer");
+    if (!answer) return;
+
+    const endHeight = answer.scrollHeight;
+
+    if (expand) {
+      item.open = true;
+      answer.style.height = "0px";
+
+      requestAnimationFrame(() => {
+        answer.style.height = `${endHeight}px`;
+      });
+
+      const onExpandEnd = (event) => {
+        if (event.propertyName !== "height") return;
+        answer.style.height = "auto";
+        answer.removeEventListener("transitionend", onExpandEnd);
+      };
+
+      answer.addEventListener("transitionend", onExpandEnd);
+      return;
+    }
+
+    answer.style.height = `${answer.scrollHeight}px`;
+
+    requestAnimationFrame(() => {
+      answer.style.height = "0px";
+    });
+
+    const onCollapseEnd = (event) => {
+      if (event.propertyName !== "height") return;
+      item.open = false;
+      answer.style.height = "";
+      answer.removeEventListener("transitionend", onCollapseEnd);
+    };
+
+    answer.addEventListener("transitionend", onCollapseEnd);
+  };
+
+  items.forEach((item) => {
+    const summary = item.querySelector("summary");
+    const answer = item.querySelector(".faq-answer");
+    if (!summary || !answer) return;
+
+    item.open = false;
+    answer.style.height = "0px";
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+      animateItem(item, !item.open);
+    });
+  });
+};
+
 const initializeSiteInteractions = () => {
   const toggle = document.querySelector(".menu-toggle");
   const mobileMenu = document.querySelector(".mobile-nav");
@@ -446,6 +510,7 @@ const initializeApp = async () => {
   await applyDesignTokens();
   initSilkBackground();
   initWellnessStackReveal();
+  initFaqAccordion();
   initializeSiteInteractions();
 };
 
