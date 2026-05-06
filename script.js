@@ -377,7 +377,7 @@ const initializeSiteInteractions = () => {
   );
   const stackSections = document.querySelectorAll("main > .section:not(.hero)");
   const revealTargets = document.querySelectorAll(
-    ".section-heading, .section-heading-centered, .how-it-works-media, .steps-grid, .stat-links-band, .team-grid, .partner-grid, .split-copy, .wellness-stack, .insight-panel, .tokenomics-grid, .tokenomics-note, .referral-story, .mid-cta-banner, .section-faq .faq-shell, .support-hub, .social-grid, .download-copy, .store-links, .support-panel, .final-cta-panel, .footer-grid"
+    ".section-heading, .how-it-works-media, .steps-grid, .stat-links-band, .team-grid, .partner-grid, .split-copy, .wellness-stack, .insight-panel, .tokenomics-grid, .tokenomics-note, .referral-story, .community-support, .resources-grid, .download-copy, .store-links, .support-panel, .footer-grid"
   );
   const referralStory = document.querySelector(".referral-story");
   const referralSteps = document.querySelectorAll(".referral-step");
