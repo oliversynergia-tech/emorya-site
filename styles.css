@@ -2496,6 +2496,16 @@ a {
   text-transform: uppercase;
 }
 
+.faq-category-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #9E9E9E;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
 .faq-item {
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--borderRadius-md);
@@ -2520,7 +2530,23 @@ a {
   transition: background var(--transition-duration-fast) ease;
 }
 
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #E8E4EC;
+  list-style: none;
+}
+
 .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::-webkit-details-marker {
   display: none;
 }
 
@@ -3030,7 +3056,6 @@ a {
 .tokenomics-note,
 .referral-story,
 .social-grid,
-.section-faq .faq-shell,
 .support-hub,
 .download-copy,
 .store-links,
