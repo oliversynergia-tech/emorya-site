@@ -2701,9 +2701,63 @@ a {
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
-  margin-top: 1.35rem;
+}
+
+.section-support-hub {
+  background: var(--color-overlay-white02);
+}
+
+.support-hub {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 0.8fr;
+  gap: 1.35rem;
+  align-items: stretch;
+}
+
+.support-hub-secondary {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.82fr);
+}
+
+.support-hub-column {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--borderRadius-lg);
+  background:
+    linear-gradient(180deg, var(--color-overlay-white03), var(--color-overlay-white012)),
+    var(--color-background-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.support-hub-column h3 {
+  margin: 0;
+  font-family: var(--typography-fontFamily-display);
+  font-size: 1.32rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.support-hub-column p {
+  margin: 0;
+}
+
+.support-hub-stack {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.social-grid-compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+}
+
+.social-grid-compact .social-link {
+  min-height: 0;
 }
 
 .social-link {
@@ -2975,8 +3029,9 @@ a {
 .tokenomics-grid,
 .tokenomics-note,
 .referral-story,
-.community-support,
-.resources-grid,
+.social-grid,
+.section-faq .faq-shell,
+.support-hub,
 .download-copy,
 .store-links,
 .support-panel,
@@ -2995,8 +3050,8 @@ a {
 
 .steps-grid.is-visible .step-card,
 .feature-grid.is-visible .feature-card,
-.community-support.is-visible .community-card,
-.resources-grid.is-visible .resource-card,
+.social-grid.is-visible .social-link,
+.support-hub.is-visible .support-hub-column,
 .store-links.is-visible .store-link {
   animation: cardCascadeIn 500ms var(--transition-easing-reveal) both;
 }
@@ -3004,16 +3059,29 @@ a {
 .steps-grid.is-visible .step-card:nth-child(2),
 .feature-grid.is-visible .feature-card:nth-child(2),
 .tokenomics-grid.is-visible .token-card:nth-child(2),
-.community-support.is-visible .community-card:nth-child(2),
-.resources-grid.is-visible .resource-card:nth-child(2),
+.support-hub.is-visible .support-hub-column:nth-child(2),
+.social-grid.is-visible .social-link:nth-child(2),
 .store-links.is-visible .store-link:nth-child(2) {
   animation-delay: 90ms;
 }
 
 .steps-grid.is-visible .step-card:nth-child(3),
 .feature-grid.is-visible .feature-card:nth-child(3),
-.resources-grid.is-visible .resource-card:nth-child(3) {
+.support-hub.is-visible .support-hub-column:nth-child(3),
+.social-grid.is-visible .social-link:nth-child(3) {
   animation-delay: var(--transition-duration-fast);
+}
+
+.social-grid.is-visible .social-link:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+.social-grid.is-visible .social-link:nth-child(5) {
+  animation-delay: 360ms;
+}
+
+.social-grid.is-visible .social-link:nth-child(6) {
+  animation-delay: 450ms;
 }
 
 .tokenomics-grid.is-visible .token-card {
@@ -3133,8 +3201,9 @@ a {
   .token-card,
   .tokenomics-note,
   .referral-story,
-  .community-support,
-  .resources-grid,
+  .social-grid,
+  .section-faq .faq-shell,
+  .support-hub,
   .download-copy,
   .support-panel,
   .footer-grid,
@@ -3200,16 +3269,18 @@ a {
   .footer-grid,
   .tokenomics-grid,
   .referral-story,
-  .community-support,
-  .resources-grid {
+  .support-hub {
     grid-template-columns: 1fr;
   }
 
   .steps-grid,
   .feature-grid,
-  .store-links,
-  .social-grid {
+  .store-links {
     grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .wellness-stack.is-scroll-stacked .wellness-card {
