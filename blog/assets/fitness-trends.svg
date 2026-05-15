@@ -1,0 +1,18 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#120A1F"/>
+  <rect x="54" y="54" width="1092" height="612" rx="36" fill="url(#paint0_linear)"/>
+  <circle cx="862" cy="230" r="170" fill="#8F78B0" fill-opacity="0.2"/>
+  <rect x="154" y="392" width="118" height="164" rx="24" fill="#F6F2FF"/>
+  <rect x="310" y="332" width="118" height="224" rx="24" fill="#E4DAF2"/>
+  <rect x="466" y="280" width="118" height="276" rx="24" fill="#D0C0EB"/>
+  <rect x="622" y="356" width="118" height="200" rx="24" fill="#B8A1DE"/>
+  <rect x="778" y="238" width="118" height="318" rx="24" fill="#8F78B0"/>
+  <text x="144" y="158" fill="#F6F2FF" font-family="Manrope, sans-serif" font-size="64" font-weight="800">Fitness trends</text>
+  <text x="144" y="222" fill="#DDD3F1" font-family="Manrope, sans-serif" font-size="28" font-weight="500">The races, communities, and training styles shaping how people move.</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="600" y1="54" x2="600" y2="666" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E1A49"/>
+      <stop offset="1" stop-color="#120A1F"/>
+    </linearGradient>
+  </defs>
+</svg>

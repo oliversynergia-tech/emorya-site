@@ -1,0 +1,40 @@
+# Emorya Website
+
+Emorya is a wellness rewards brand focused on everyday movement, recovery, routine tracking, and guided digital rewards.
+
+## Primary website sections
+- Home: https://oliversynergia-tech.github.io/emorya-site/
+- Team: https://oliversynergia-tech.github.io/emorya-site/team.html
+- Blog hub: https://oliversynergia-tech.github.io/emorya-site/blog/
+
+## Blog content clusters
+- Everyday movement: https://oliversynergia-tech.github.io/emorya-site/blog/category/everyday-movement/
+- Fitness trends: https://oliversynergia-tech.github.io/emorya-site/blog/category/fitness-trends/
+- Wellbeing: https://oliversynergia-tech.github.io/emorya-site/blog/category/wellbeing/
+- Habits: https://oliversynergia-tech.github.io/emorya-site/blog/category/habits/
+- Fitness guides: https://oliversynergia-tech.github.io/emorya-site/blog/category/fitness-guides/
+- Fitness tech: https://oliversynergia-tech.github.io/emorya-site/blog/category/fitness-tech/
+- Rewards and Web3: https://oliversynergia-tech.github.io/emorya-site/blog/category/rewards-web3/
+
+## Editorial focus
+This blog is built as a mainstream health, fitness, wellness, and movement discovery engine first. It emphasizes walking, habit-building, wellbeing, fitness culture, and gamified health tools. Emorya-specific reward, Web3, and token education are layered in where relevant, but the content is intentionally not crypto-first.
+
+## Key concepts
+- Everyday movement
+- Walking
+- Healthy habits
+- Recovery
+- Fitness trends
+- Behavior change
+- Gamified health
+- Fitness technology
+- Sustainable rewards
+- Digital ownership
+- Guided Web3 onboarding
+
+## Best product explainer routes
+- How it works: https://oliversynergia-tech.github.io/emorya-site/#how-it-works
+- Tokenomics: https://oliversynergia-tech.github.io/emorya-site/#tokenomics
+- Community: https://oliversynergia-tech.github.io/emorya-site/#community
+- FAQ: https://oliversynergia-tech.github.io/emorya-site/#faq
+- Download: https://oliversynergia-tech.github.io/emorya-site/#download

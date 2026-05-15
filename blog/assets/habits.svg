@@ -1,0 +1,20 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#120A1F"/>
+  <rect x="54" y="54" width="1092" height="612" rx="36" fill="url(#paint0_linear)"/>
+  <rect x="198" y="236" width="804" height="286" rx="36" fill="#F6F2FF" fill-opacity="0.06" stroke="#F6F2FF" stroke-opacity="0.16" stroke-width="2"/>
+  <path d="M278 323H922" stroke="#F6F2FF" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M278 392H922" stroke="#F6F2FF" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M278 461H922" stroke="#F6F2FF" stroke-opacity="0.18" stroke-width="2"/>
+  <circle cx="338" cy="289" r="22" fill="#F6F2FF"/>
+  <circle cx="338" cy="358" r="22" fill="#F6F2FF"/>
+  <circle cx="338" cy="427" r="22" fill="#F6F2FF"/>
+  <path d="M588 265L640 317L734 223" stroke="#D7CCEB" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="144" y="158" fill="#F6F2FF" font-family="Manrope, sans-serif" font-size="64" font-weight="800">Habit building</text>
+  <text x="144" y="222" fill="#DDD3F1" font-family="Manrope, sans-serif" font-size="28" font-weight="500">Consistency, routines, and why small wins change behavior over time.</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="600" y1="54" x2="600" y2="666" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B1746"/>
+      <stop offset="1" stop-color="#120A1F"/>
+    </linearGradient>
+  </defs>
+</svg>

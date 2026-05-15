@@ -1,0 +1,16 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#120A1F"/>
+  <rect x="54" y="54" width="1092" height="612" rx="36" fill="url(#paint0_linear)"/>
+  <circle cx="932" cy="214" r="150" fill="#7F66A8" fill-opacity="0.18"/>
+  <circle cx="304" cy="248" r="204" fill="#D7CCEB" fill-opacity="0.08"/>
+  <path d="M144 490C245 394 337 343 427 338C552 330 604 429 709 429C801 429 865 354 1048 240" stroke="#F6F2FF" stroke-width="16" stroke-linecap="round"/>
+  <path d="M144 548H1058" stroke="#D7CCEB" stroke-opacity="0.3" stroke-width="2"/>
+  <text x="144" y="158" fill="#F6F2FF" font-family="Manrope, sans-serif" font-size="64" font-weight="800">Everyday movement</text>
+  <text x="144" y="222" fill="#DDD3F1" font-family="Manrope, sans-serif" font-size="28" font-weight="500">Walking, energy, recovery, and simple ways to move more.</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="600" y1="54" x2="600" y2="666" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B1746"/>
+      <stop offset="1" stop-color="#140A1F"/>
+    </linearGradient>
+  </defs>
+</svg>

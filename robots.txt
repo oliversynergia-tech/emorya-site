@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oliversynergia-tech.github.io/emorya-site/sitemap.xml
