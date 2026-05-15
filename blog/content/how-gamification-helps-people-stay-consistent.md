@@ -11,8 +11,8 @@ tags:
 author: "Emorya Editorial Team"
 datePublished: "2026-05-15"
 dateModified: "2026-05-15"
-featuredImage: "/blog/assets/fitness-tech.svg"
-imageAlt: "Abstract illustration representing gamification and fitness technology"
+featuredImage: "/blog/assets/consistency.svg"
+imageAlt: "Consistency and gamification article illustration"
 excerpt: "Gamification helps by making effort visible and easier to repeat."
 tldr: "Gamification helps people stay consistent because it makes effort visible, progress easier to understand, and healthy actions more rewarding to repeat."
 relatedArticles:
