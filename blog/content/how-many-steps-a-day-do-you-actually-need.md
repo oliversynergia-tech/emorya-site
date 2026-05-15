@@ -13,8 +13,8 @@ tags:
 author: "Emorya Editorial Team"
 datePublished: "2026-05-15"
 dateModified: "2026-05-15"
-featuredImage: "/blog/assets/everyday-movement.svg"
-imageAlt: "Abstract illustration representing daily step targets and walking progress"
+featuredImage: "/blog/assets/power-walk-1.svg"
+imageAlt: "Walking and daily movement illustration for the steps article"
 excerpt: "You do not need exactly 10,000 steps a day to benefit from walking. The better goal is to improve your current baseline and build a target that fits real life."
 tldr: "You do not need to hit exactly 10,000 steps a day to benefit from walking. For most people, the better goal is to improve their current baseline, reduce long periods of inactivity, and build a step range that supports health without creating unnecessary pressure."
 relatedArticles:
