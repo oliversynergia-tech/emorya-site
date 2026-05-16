@@ -5,6 +5,7 @@ Emorya is a wellness rewards brand focused on everyday movement, recovery, routi
 ## Primary website sections
 - Home: https://oliversynergia-tech.github.io/emorya-site/
 - Team: https://oliversynergia-tech.github.io/emorya-site/team.html
+- Premium: https://oliversynergia-tech.github.io/emorya-site/premium.html
 - Blog hub: https://oliversynergia-tech.github.io/emorya-site/blog/
 
 ## Blog content clusters
@@ -34,6 +35,7 @@ This blog is built as a mainstream health, fitness, wellness, and movement disco
 
 ## Best product explainer routes
 - How it works: https://oliversynergia-tech.github.io/emorya-site/#how-it-works
+- Premium: https://oliversynergia-tech.github.io/emorya-site/premium.html
 - Tokenomics: https://oliversynergia-tech.github.io/emorya-site/#tokenomics
 - Community: https://oliversynergia-tech.github.io/emorya-site/#community
 - FAQ: https://oliversynergia-tech.github.io/emorya-site/#faq
